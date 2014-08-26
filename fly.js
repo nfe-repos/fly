@@ -312,10 +312,10 @@ define("fly", ["jquery"], function(require, exports, module){
          * @param {DOM} 		context 	作用域
          */
         fly.live = function(selector, eventName, method, context) {
-            jQuery(selector, context).live(eventName, method);
+            context.on(eventName, selector, method);
         };
         fly.die = function(selector,eventName,context){
-            jQuery(selector,context).die(eventName);
+            jQuery(selector,context).off(eventName);
         };
         fly.g = function(id, context) {
             return jQuery("#" + id, context);
